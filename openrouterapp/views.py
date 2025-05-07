@@ -64,3 +64,54 @@ def LoginPage(request):
         return JsonResponse({"reply": reply})
 
     return JsonResponse({"error": "Only POST method is allowed"}, status=405)
+
+
+@csrf_exempt
+def test(request):
+    reply = ""
+    
+    if request.method == "POST":
+        user_question = request.POST.get("question", "").strip()
+
+        if not user_question:
+            return render(request, "login.html", {"error": "Question is required."})
+
+        # Search top 10 relevant chunks
+        relevant_chunks = [
+            chunk for chunk in PDF_CHUNKS
+            if any(word in chunk.lower() for word in user_question.lower().split())
+        ][:10]
+
+        context_text = "\n\n".join(relevant_chunks)
+
+        payload = {
+            "model": "openai/gpt-4o",
+            "messages": [
+                {"role": "system", "content": "You are a helpful assistant. Use the following PDF content to answer questions."},
+                {"role": "user", "content": f"PDF Content:\n{context_text}\n\nQuestion: {user_question}"}
+            ],
+            "max_tokens": 512
+        }
+
+        try:
+            response = requests.post(
+                url="https://openrouter.ai/api/v1/chat/completions",
+                headers={
+                    "Authorization": "Bearer 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",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://yourdomain.com",
+                    "X-Title": "PDF QnA App"
+                },
+                json=payload
+            )
+
+            result = response.json()
+            if "choices" in result and result["choices"]:
+                reply = result["choices"][0]["message"]["content"]
+            else:
+                reply = result.get("error", {}).get("message", "No valid reply received from API.")
+
+        except Exception as e:
+            return render(request, "test.html", {"error": str(e)})
+
+    return render(request, "test.html", {"reply": reply})
