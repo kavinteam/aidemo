@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask a Question</title>
+</head>
+<body>
+    <h1>Ask a Question</h1>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="question" rows="4" cols="50"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if reply %}
+    <h2>Response:</h2>
+    <p>{{ reply }}</p>
+    {% endif %}
+</body>
+</html>
