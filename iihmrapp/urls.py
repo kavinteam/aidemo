@@ -1,0 +1,96 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name='index'),
+    path('web_login',views.web_login,name = 'web_login'),
+    path('admin_raw_data_download',views.admin_raw_data_download,name = 'admin_raw_data_download'),
+    path('admin_IIHMR_mobile_apk_upload',views.admin_IIHMR_mobile_apk_upload,name = 'admin_IIHMR_mobile_apk_upload'),
+    path('admin_all_raw_data_download',views.admin_all_raw_data_download,name = 'admin_all_raw_data_download'),
+    path('check_task_status/',views.check_task_status,name = 'check_task_status'),
+    path('retry_on_db_errors',views.retry_on_db_errors,name = 'retry_on_db_errors'), 
+
+    #*******************************************Dashboard URL's ****************************************************************
+    #Hypertension Dashboard
+    path('gender_hypertension',views.gender_hypertension,name = 'gender_hypertension'),
+    path('hypertension_months_screening',views.hypertension_months_screening,name = 'hypertension_months_screening'),
+    path('current_hyperteion_medicine',views.current_hyperteion_medicine,name = 'current_hyperteion_medicine'),
+    path('hyperteion_blood_preasur_range',views.hyperteion_blood_preasur_range,name = 'hyperteion_blood_preasur_range'),
+    path('preventive_measures_hypertension',views.preventive_measures_hypertension,name = 'preventive_measures_hypertension'),
+    path('hypertensive_medicine_currently_used',views.hypertensive_medicine_currently_used,name = 'hypertensive_medicine_currently_used'),
+    path('hypertension_member_age',views.hypertension_member_age,name = 'hypertension_member_age'),
+    path('last_recorded_blood_pressure',views.last_recorded_blood_pressure,name = 'last_recorded_blood_pressure'),
+    path('signs_and_symptoms_of_high_blood_pressure',views.signs_and_symptoms_of_high_blood_pressure,name = 'signs_and_symptoms_of_high_blood_pressure'),
+    path('frequency_of_currently_used_medicine',views.frequency_of_currently_used_medicine,name = 'frequency_of_currently_used_medicine'),
+    path('management_measures_of_hypertension',views.management_measures_of_hypertension,name = 'management_measures_of_hypertension'),
+    path('place_of_last_screening',views.place_of_last_screening,name = 'place_of_last_screening'),
+    path('causes_of_high_blood_pressure',views.causes_of_high_blood_pressure,name = 'causes_of_high_blood_pressure'),
+    path('frequency_of_doctor_visit_for_bp_follow_up',views.frequency_of_doctor_visit_for_bp_follow_up,name = 'frequency_of_doctor_visit_for_bp_follow_up'),
+    path('reasons_for_not_taking_medicine_currently',views.reasons_for_not_taking_medicine_currently,name = 'reasons_for_not_taking_medicine_currently'),
+    path('non_pharmacological_methods_blood_pressure_management',views.non_pharmacological_methods_blood_pressure_management,name = 'non_pharmacological_methods_blood_pressure_management'),
+    path('duration_of_hypertension',views.duration_of_hypertension,name = 'duration_of_hypertension'),
+    path('complications_of_untreated_hypertension',views.complications_of_untreated_hypertension,name = 'complications_of_untreated_hypertension'),
+    path('preferred_follow_up_location_for_hypertension',views.preferred_follow_up_location_for_hypertension,name = 'preferred_follow_up_location_for_hypertension'),
+    path('source_of_information_about_hypertension',views.source_of_information_about_hypertension,name = 'source_of_information_about_hypertension'),    
+ 
+    #Diabetes Dashboard
+    path('gender_diebetes',views.gender_diebetes,name = 'gender_diebetes'),
+    path('diebetes_months_screening',views.diebetes_months_screening,name = 'diebetes_months_screening'),
+    path('current_diebetes_medicine',views.current_diebetes_medicine,name = 'current_diebetes_medicine'),
+    path('diebetes_blood_preasur_range',views.diebetes_blood_preasur_range,name = 'diebetes_blood_preasur_range'),
+    path('preventive_measures_diebetes',views.preventive_measures_diebetes,name = 'preventive_measures_diebetes'),
+    path('diebetes_member_age',views.diebetes_member_age,name = 'diebetes_member_age'),
+    path('diebetes_last_recorded_blood_glucose_range',views.diebetes_last_recorded_blood_glucose_range,name = 'diebetes_last_recorded_blood_glucose_range'),
+    path('diabetic_medicine_currently_used',views.diabetic_medicine_currently_used,name = 'diabetic_medicine_currently_used'),
+    path('signs_and_symptoms_of_diabetes',views.signs_and_symptoms_of_diabetes,name = 'signs_and_symptoms_of_diabetes'),
+    path('diabetic_frequency_of_currently_used_medicine',views.diabetic_frequency_of_currently_used_medicine,name = 'diabetic_frequency_of_currently_used_medicine'),
+    path('management_measures_of_diabetes',views.management_measures_of_diabetes,name = 'management_measures_of_diabetes'),
+    path('diabetic_place_of_last_screening',views.diabetic_place_of_last_screening,name = 'diabetic_place_of_last_screening'),
+    path('causes_of_diabetes',views.causes_of_diabetes,name = 'causes_of_diabetes'),
+    path('diabetic_reasons_for_not_taking_medicine',views.diabetic_reasons_for_not_taking_medicine,name = 'diabetic_reasons_for_not_taking_medicine'),
+    path('doctor_visit_for_diabetic',views.doctor_visit_for_diabetic,name = 'doctor_visit_for_diabetic'),
+    path('duration_of_diabetes',views.duration_of_diabetes,name = 'duration_of_diabetes'),
+    path('non_pharmacological_methods_for_diabetes_management',views.non_pharmacological_methods_for_diabetes_management,name = 'non_pharmacological_methods_for_diabetes_management'),
+    path('complications_of_uncontrolled_diabetes',views.complications_of_uncontrolled_diabetes,name = 'complications_of_uncontrolled_diabetes'),
+    path('follow_up_location_for_diabetic_management',views.follow_up_location_for_diabetic_management,name = 'follow_up_location_for_diabetic_management'),
+    path('source_of_information_about_diabetes',views.source_of_information_about_diabetes,name = 'source_of_information_about_diabetes'),
+
+    #Diet and Nutrition
+    path('type_of_diet_followed',views.type_of_diet_followed,name = 'type_of_diet_followed'),
+    path('daily_meal_consumption',views.daily_meal_consumption,name = 'daily_meal_consumption'),
+    path('frequently_missed_meals',views.frequently_missed_meals,name = 'frequently_missed_meals'),
+    path('dietary_restrictions_followed',views.dietary_restrictions_followed,name = 'dietary_restrictions_followed'),
+    path('cereals_and_millets',views.cereals_and_millets,name = 'cereals_and_millets'),
+    path('pulses',views.pulses,name = 'pulses'),
+    path('green_leafy_vegetables',views.green_leafy_vegetables,name = 'green_leafy_vegetables'),
+    path('other_vegetables',views.other_vegetables,name = 'other_vegetables'),
+    path('milk_and_milk_products',views.milk_and_milk_products,name = 'milk_and_milk_products'),
+    path('diet_and_nutr_fruits',views.diet_and_nutr_fruits,name = 'diet_and_nutr_fruits'),
+    path('diet_and_nutr_egg',views.diet_and_nutr_egg,name = 'diet_and_nutr_egg'),
+    path('meat_chicken',views.meat_chicken,name = 'meat_chicken'),
+    path('fast_foods',views.fast_foods,name = 'fast_foods'),
+    path('Soft_cold_drinks',views.Soft_cold_drinks,name = 'Soft_cold_drinks'),
+    path('cereals_and_millets_percentage',views.cereals_and_millets_percentage,name = 'cereals_and_millets_percentage'),
+
+    #Health Problems
+    path('health_nothing',views.health_nothing,name = 'health_nothing'),
+    path('heart_disease',views.heart_disease,name = 'heart_disease'),
+    path('stroke',views.stroke,name = 'stroke'),
+    path('asthma',views.asthma,name = 'asthma'),
+    path('pcos',views.pcos,name = 'pcos'),
+    path('thyroid',views.thyroid,name = 'thyroid'),
+    path('teeth_or_gum',views.teeth_or_gum,name = 'teeth_or_gum'),
+    path('retinopathy',views.retinopathy,name = 'retinopathy'),
+    path('sexual_dysfunction',views.sexual_dysfunction,name = 'sexual_dysfunction'),
+
+    #Physical activity
+    path('moderate_physical_activity',views.moderate_physical_activity,name = 'moderate_physical_activity'),
+    path('frequency_of_moderate_physical_activity',views.frequency_of_moderate_physical_activity,name = 'frequency_of_moderate_physical_activity'),
+    path('vigorous_physical_activity',views.vigorous_physical_activity,name = 'vigorous_physical_activity'),
+    path('Vigorous_of_moderate_physical_activity',views.Vigorous_of_moderate_physical_activity,name = 'Vigorous_of_moderate_physical_activity'),
+   
+   #Lifestyle habits
+    path('yoga_meditation_sessions_in_the_past_3_months',views.yoga_meditation_sessions_in_the_past_3_months,name = 'yoga_meditation_sessions_in_the_past_3_months'),
+    path('current_habits',views.current_habits,name = 'current_habits'),
+    path('past_habits',views.past_habits,name = 'past_habits'),
+]

@@ -1,0 +1,35 @@
+1.To FETCH THE LOG INFROMATION FORM THE CELRY SERVER
+celery -A IIHMR worker --loglevel=info --pool=solo
+
+# celery -A IIHMR worker --loglevel=info
+
+
+2. CONNECT TO THE FLOWE TO SEE THE GUI INTEFACE VIEW ALL THE PENDING AND COMPLETED TASK
+celery -A IIHMR flower --port=5555
+
+*****************************************************************************************
+Core Celery Functionality
+celery==5.5.2: Main task queue library for handling background jobs asynchronously.
+
+kombu==5.5.3: Messaging library used by Celery to communicate with brokers (e.g., RabbitMQ, Redis).
+
+gevent==24.2.1, greenlet==3.0.3: For asynchronous IO and concurrency; Celery can use gevent for concurrency.
+
+future==1.0.0: Provides Python 2/3 compatibility; sometimes used in older Celery-dependent codebases.
+ Monitoring & Admin
+flower==2.0.1: Web-based tool for monitoring and administrating Celery workers and tasks.
+
+🧰 CLI Enhancements
+click==8.1.8: Used for building command-line interfaces.
+
+click-didyoumean==0.3.1, click-plugins==1.1.1, click-repl==0.3.0: Add features like suggestions, plugin support, and REPL to CLI tools.
+
+🔒 Security and Networking
+cffi==1.16.0: Required by cryptographic libraries; often a dependency for low-level libraries (e.g., cryptography, PyOpenSSL).
+
+certifi==2024.6.2, idna==3.7, charset-normalizer==3.3.2: Used by HTTP libraries like requests for proper SSL handling, encoding detection, and internationalized domains.
+
+🧑‍🔬 Developer Support / Utilities
+filelock==3.14.0: Helps prevent concurrent access to files—useful in multiprocessing or distributed systems.
+
+humanize==4.10.0: Makes numbers and dates human-readable (e.g., "3 minutes ago").
