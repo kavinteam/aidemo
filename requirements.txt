@@ -17,4 +17,4 @@ sqlparse==0.5.3
 typing-extensions==4.13.1
 tzdata==2025.2
 urllib3==2.2.3
-python_version <= '3.8'
+python_version <= 3.8
