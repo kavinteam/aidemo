@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { submitGuestWish, getGuestWishes } from "@/app/actions";
 import { useEffect, useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -26,7 +27,7 @@ function SubmitButton() {
 }
 
 export default function GuestWishesSection() {
-  const [state, formAction] = useFormState(submitGuestWish, { message: "", errors: {} });
+  const [state, formAction] = useActionState(submitGuestWish, { message: "", errors: {} });
   const [wishes, setWishes] = useState<GuestWish[]>([]);
   const formRef = useRef<HTMLFormElement>(null);
 

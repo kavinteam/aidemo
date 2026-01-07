@@ -1,6 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { submitRsvp } from "@/app/actions";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -28,7 +29,7 @@ function SubmitButton() {
 }
 
 export default function RsvpSection() {
-    const [state, formAction] = useFormState(submitRsvp, { message: "", errors: {} });
+    const [state, formAction] = useActionState(submitRsvp, { message: "", errors: {} });
 
     return (
         <section id="rsvp" className="py-16 md:py-24 bg-secondary/30 bg-silk-pattern overflow-hidden">
