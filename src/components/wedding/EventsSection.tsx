@@ -1,3 +1,7 @@
+
+"use client";
+
+import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { MapPin, Clock, Shirt, Sparkles, Paintbrush, Music2, HeartHandshake, PartyPopper } from "lucide-react";
@@ -58,6 +62,8 @@ const events = [
 ];
 
 export default function EventsSection() {
+  const [activeTab, setActiveTab] = useState("wedding");
+
   return (
     <section id="events" className="py-16 md:py-24 bg-secondary/30 bg-silk-pattern overflow-hidden">
       <ScrollFadeIn>
@@ -65,10 +71,14 @@ export default function EventsSection() {
         <h2 className="text-4xl md:text-5xl font-headline text-center text-accent mb-12">
           The Wedding Events
         </h2>
-        <Tabs defaultValue="wedding" className="w-full max-w-4xl mx-auto">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 bg-background/70 backdrop-blur-sm">
             {events.map((event) => (
-              <TabsTrigger key={event.id} value={event.id}>
+              <TabsTrigger 
+                key={event.id} 
+                value={event.id}
+                onMouseEnter={() => setActiveTab(event.id)}
+              >
                 <event.icon className="w-4 h-4 mr-2" />
                 {event.name}
               </TabsTrigger>
