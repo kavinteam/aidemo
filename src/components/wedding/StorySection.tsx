@@ -1,6 +1,11 @@
+
+"use client";
+
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { ScrollFadeIn } from "./ScrollFadeIn";
+import { getImage } from "@/lib/placeholder-images";
 
 const storyData = [
   {
@@ -36,6 +41,7 @@ export default function StorySection() {
 
             {storyData.map((item, index) => {
               const isEven = index % 2 === 0;
+              const image = getImage(item.imageId);
 
               return (
                 <div key={index} className={cn(
@@ -43,8 +49,17 @@ export default function StorySection() {
                    isEven ? "flex-row-reverse left-timeline" : "right-timeline"
                 )}>
                   <div className="order-1 w-5/12"></div>
-                  <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-8 h-8 rounded-full">
-                    <h1 className="mx-auto font-semibold text-lg text-primary-foreground">{index + 1}</h1>
+                  <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-24 h-24 rounded-full overflow-hidden border-4 border-background">
+                    {image && (
+                      <Image
+                        src={image.imageUrl}
+                        alt={item.title}
+                        width={96}
+                        height={96}
+                        className="w-full h-full object-cover"
+                        data-ai-hint={image.imageHint}
+                      />
+                    )}
                   </div>
                   <div className="order-1 w-5/12 px-6 py-4">
                      <Card className={cn("shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20", isEven ? "text-right" : "text-left")}>
