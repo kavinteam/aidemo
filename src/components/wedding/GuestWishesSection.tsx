@@ -26,6 +26,31 @@ function SubmitButton() {
   );
 }
 
+function WishCard({ wish }: { wish: GuestWish }) {
+    const [timeAgo, setTimeAgo] = useState("");
+
+    useEffect(() => {
+        setTimeAgo(formatDistanceToNow(wish.date, { addSuffix: true }));
+    }, [wish.date]);
+
+
+    return (
+        <Card className="bg-secondary/30">
+            <CardHeader className="p-4">
+                <div className="flex justify-between items-center">
+                <CardTitle className="text-base font-semibold text-accent">{wish.name}</CardTitle>
+                <CardDescription className="text-xs">
+                    {timeAgo}
+                </CardDescription>
+                </div>
+            </CardHeader>
+            <CardContent className="p-4 pt-0">
+                <p className="text-muted-foreground">{wish.message}</p>
+            </CardContent>
+        </Card>
+    );
+}
+
 export default function GuestWishesSection() {
   const [state, formAction] = useActionState(submitGuestWish, { message: "", errors: {} });
   const [wishes, setWishes] = useState<GuestWish[]>([]);
@@ -72,19 +97,7 @@ export default function GuestWishesSection() {
           </div>
           <div className="order-1 md:order-2 space-y-4 max-h-96 overflow-y-auto pr-2">
             {wishes.map((wish, index) => (
-              <Card key={index} className="bg-secondary/30">
-                <CardHeader className="p-4">
-                  <div className="flex justify-between items-center">
-                    <CardTitle className="text-base font-semibold text-accent">{wish.name}</CardTitle>
-                    <CardDescription className="text-xs">
-                        {formatDistanceToNow(wish.date, { addSuffix: true })}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-4 pt-0">
-                  <p className="text-muted-foreground">{wish.message}</p>
-                </CardContent>
-              </Card>
+              <WishCard key={index} wish={wish} />
             ))}
           </div>
         </div>
