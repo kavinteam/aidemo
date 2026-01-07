@@ -4,17 +4,23 @@ import { Countdown } from './Countdown';
 import { getImage } from '@/lib/placeholder-images';
 import { HeroCarousel } from './HeroCarousel';
 import { useEffect, useState } from 'react';
+import { type ImagePlaceholder } from '@/lib/placeholder-images';
 
 const heroImageIds = ['hero', 'hero-2', 'hero-3', 'hero-4', 'hero-5', 'hero-6', 'hero-7'];
 
 export default function HeroSection() {
-  const images = heroImageIds.map(id => getImage(id)).filter(Boolean);
+  const [images, setImages] = useState<ImagePlaceholder[]>([]);
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.pageYOffset);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const allImages = heroImageIds.map(id => getImage(id)).filter((img): img is ImagePlaceholder => !!img);
+    setImages(allImages);
   }, []);
 
 
@@ -24,7 +30,7 @@ export default function HeroSection() {
       className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden"
     >
       <div className="absolute inset-0 w-full h-full" style={{ transform: `translateY(${offsetY * 0.4}px)`}}>
-        {images && <HeroCarousel images={images} />}
+        {images.length > 0 && <HeroCarousel images={images} />}
       </div>
 
       <div className="absolute inset-0 bg-black/50" />
