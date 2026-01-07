@@ -5,7 +5,7 @@ import { getImage } from '@/lib/placeholder-images';
 import { HeroCarousel } from './HeroCarousel';
 import { useEffect, useState } from 'react';
 
-const heroImageIds = ['hero', 'hero-2', 'hero-3'];
+const heroImageIds = ['hero', 'hero-2', 'hero-3', 'hero-4', 'hero-5'];
 
 export default function HeroSection() {
   const images = heroImageIds.map(id => getImage(id)).filter(Boolean);

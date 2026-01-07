@@ -19,6 +19,18 @@
       "imageHint": "indian wedding couple"
     },
     {
+      "id": "hero-4",
+      "description": "A fourth beautiful photo of the couple for the hero section.",
+      "imageUrl": "https://images.unsplash.com/photo-1615895856422-4a0799341018?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxpbmRpYW4lMjB3ZWRkaW5nJTIwY291cGxlfGVufDB8fHx8MTc2Nzc2MzUwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding couple"
+    },
+    {
+      "id": "hero-5",
+      "description": "A fifth beautiful photo of the couple for the hero section.",
+      "imageUrl": "https://images.unsplash.com/photo-1596783821953-3c6c10b0a88b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbmRpYW4lMjBicmlkZSUyMGdyb29tfGVufDB8fHx8MTc2Nzc2MzUwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian bride groom"
+    },
+    {
       "id": "story-1",
       "description": "Image for the first story milestone.",
       "imageUrl": "https://images.unsplash.com/photo-1718459724319-631e707cff92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3VwbGUlMjBjb2ZmZWV8ZW58MHx8fHwxNzY3NzY3NTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
