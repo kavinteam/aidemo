@@ -1,3 +1,64 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A beautiful photo of the couple for the hero section.",
+      "imageUrl": "https://images.unsplash.com/photo-1505932794465-147d1f1b2c97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxpbmRpYW4lMjB3ZWRkaW5nfGVufDB8fHx8MTc2Nzc2MzIyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian wedding"
+    },
+    {
+      "id": "story-1",
+      "description": "Image for the first story milestone.",
+      "imageUrl": "https://images.unsplash.com/photo-1718459724319-631e707cff92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3VwbGUlMjBjb2ZmZWV8ZW58MHx8fHwxNzY3NzY3NTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "couple coffee"
+    },
+    {
+      "id": "story-2",
+      "description": "Image for the second story milestone.",
+      "imageUrl": "https://images.unsplash.com/photo-1656558136312-71b8f36bea25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb3VwbGUlMjB0cmF2ZWx8ZW58MHx8fHwxNzY3NzA1NTczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "couple travel"
+    },
+    {
+      "id": "story-3",
+      "description": "Image for the third story milestone.",
+      "imageUrl": "https://images.unsplash.com/photo-1765854639194-3d5e08772a23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9wb3NhbCUyMHJpbmd8ZW58MHx8fHwxNzY3NzA4NjU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "proposal ring"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Pre-wedding photo 1.",
+      "imageUrl": "https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3ZWRkaW5nJTIwY291cGxlfGVufDB8fHx8MTc2Nzc2NzU4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding couple"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Pre-wedding photo 2.",
+      "imageUrl": "https://images.unsplash.com/photo-1542325383-ff5af189d9c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3ZWRkaW5nJTIwc21pbGV8ZW58MHx8fHwxNzY3NzA4NzM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding smile"
+    },
+    {
+      "id": "gallery-3",
+      "description": "Pre-wedding photo 3.",
+      "imageUrl": "https://images.unsplash.com/photo-1553292770-c3d14b814242?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhZGl0aW9uYWwlMjBjb3VwbGV8ZW58MHx8fHwxNzY3NzY3NTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "traditional couple"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Pre-wedding photo 4.",
+      "imageUrl": "https://images.unsplash.com/photo-1721572321878-46fbef2e4bbd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBwYWxhY2V8ZW58MHx8fHwxNzY3NzY3NTg1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "indian palace"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Pre-wedding photo 5.",
+      "imageUrl": "https://images.unsplash.com/photo-1747419003011-97b50122a653?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3ZWRkaW5nJTIwbGF1Z2h0ZXJ8ZW58MHx8fHwxNzY3NzY3NTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wedding laughter"
+    },
+    {
+      "id": "map-placeholder",
+      "description": "Placeholder image for the venue map.",
+      "imageUrl": "https://images.unsplash.com/photo-1619468129361-605ebea04b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYXAlMjBsb2NhdGlvbnxlbnwwfHx8fDE3Njc3Njc1ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "map location"
+    }
+  ]
 }
