@@ -12,16 +12,18 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <div className="relative">
         <HeroSection />
-        <StorySection />
-        <EventsSection />
-        <VenueSection />
-        <GallerySection />
-        <RsvpSection />
-        <GuestWishesSection />
-      </main>
-      <Footer />
+        <main className="relative z-10 mt-[100vh] bg-background">
+          <StorySection />
+          <EventsSection />
+          <VenueSection />
+          <GallerySection />
+          <RsvpSection />
+          <GuestWishesSection />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

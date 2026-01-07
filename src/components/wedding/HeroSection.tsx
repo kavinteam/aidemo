@@ -11,33 +11,40 @@ const heroImageIds = ['hero', 'hero-2', 'hero-3', 'hero-4', 'hero-5', 'hero-6', 
 
 export default function HeroSection() {
   const [images, setImages] = useState<ImagePlaceholder[]>([]);
-  const [offsetY, setOffsetY] = useState(0);
+  const [scroll, setScroll] = useState(0);
   const [isClient, setIsClient] = useState(false);
   
   useEffect(() => {
     setIsClient(true);
-    const handleScroll = () => setOffsetY(window.pageYOffset);
-    window.addEventListener('scroll', handleScroll);
+    
+    const handleScroll = () => {
+      setScroll(window.scrollY);
+    };
 
+    window.addEventListener('scroll', handleScroll);
+    
     const allImages = heroImageIds.map(id => getImage(id)).filter((img): img is ImagePlaceholder => !!img);
     setImages(allImages);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const scale = isClient ? Math.max(0.7, 1 - scroll / window.innerHeight) : 1;
 
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden"
+      className="h-screen w-full top-0 sticky flex items-center justify-center text-center text-white overflow-hidden"
     >
       {isClient && (
-        <div className="absolute inset-0 w-full h-full" style={{ transform: `translateY(${offsetY * 0.4}px)`}}>
+        <div className="absolute inset-0 w-full h-full" style={{ transform: `scale(${scale})`}}>
           {images.length > 0 && <HeroCarousel images={images} />}
+          <div className="absolute inset-0 bg-black/50" />
         </div>
       )}
 
-      <div className="absolute inset-0 bg-black/50" />
-       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       <div className="relative z-10 p-4 flex flex-col items-center">
         <h1 className="font-headline text-5xl md:text-8xl text-shadow-lg" style={{textShadow: '0 2px 10px rgba(212,175,55,0.5)'}}>Aarav & Diya</h1>
         <p className="mt-4 text-lg md:text-2xl font-light">
