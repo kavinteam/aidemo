@@ -23,37 +23,25 @@ export function Countdown() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    // This effect runs only on the client, after the component has mounted.
     setIsClient(true);
+    // Set the initial time left immediately on the client
+    setTimeLeft(calculateTimeLeft());
+    
     const timer = setInterval(() => {
         setTimeLeft(calculateTimeLeft());
     }, 1000);
-    setTimeLeft(calculateTimeLeft());
+    
+    // Clear interval on component unmount
     return () => clearInterval(timer);
   }, []);
 
   const timeUnits = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hours", value: timeLeft.hours },
-    { label: "Minutes", value: timeLeft.minutes },
-    { label: "Seconds", value: timeLeft.seconds },
+    { label: "Days", value: isClient ? timeLeft.days : 0 },
+    { label: "Hours", value: isClient ? timeLeft.hours : 0 },
+    { label: "Minutes", value: isClient ? timeLeft.minutes : 0 },
+    { label: "Seconds", value: isClient ? timeLeft.seconds : 0 },
   ];
-
-  if (!isClient) {
-    return (
-        <div className="flex justify-center gap-4 md:gap-8">
-        {timeUnits.map((unit) => (
-            <div key={unit.label} className="flex flex-col items-center">
-            <span className="text-4xl md:text-6xl font-headline font-light text-primary">
-                --
-            </span>
-            <span className="text-sm md:text-base font-body uppercase tracking-wider text-accent">
-                {unit.label}
-            </span>
-            </div>
-        ))}
-        </div>
-    );
-  }
 
   return (
     <div className="flex justify-center gap-4 md:gap-8">
@@ -66,7 +54,7 @@ export function Countdown() {
           transition={{ duration: 0.5, delay: index * 0.1 }}
         >
           <span className="text-4xl md:text-6xl font-headline font-light text-primary">
-            {String(unit.value).padStart(2, "0")}
+            {isClient ? String(unit.value).padStart(2, "0") : '--'}
           </span>
           <span className="text-sm md:text-base font-body uppercase tracking-wider text-accent">
             {unit.label}

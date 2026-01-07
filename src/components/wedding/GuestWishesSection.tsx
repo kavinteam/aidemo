@@ -29,8 +29,10 @@ function WishCard({ wish }: { wish: GuestWish }) {
     const [timeAgo, setTimeAgo] = useState("");
 
     useEffect(() => {
-      // Ensure this runs only on the client
-      setTimeAgo(formatDistanceToNow(new Date(wish.date), { addSuffix: true }));
+      // This effect runs only on the client, after hydration.
+      // The date is converted to a Date object here from the serialized string.
+      const dateObject = new Date(wish.date);
+      setTimeAgo(formatDistanceToNow(dateObject, { addSuffix: true }));
     }, [wish.date]);
 
     return (
@@ -39,7 +41,7 @@ function WishCard({ wish }: { wish: GuestWish }) {
                 <div className="flex justify-between items-center">
                 <CardTitle className="text-base font-semibold text-accent">{wish.name}</CardTitle>
                 <CardDescription className="text-xs">
-                    {timeAgo || '...'}
+                    {timeAgo}
                 </CardDescription>
                 </div>
             </CardHeader>
@@ -58,9 +60,9 @@ export default function GuestWishesSection() {
   useEffect(() => {
     async function fetchWishes() {
       const fetchedWishes = await getGuestWishes();
-      // Since date objects are not serializable from server actions, we need to convert them back
-      const parsedWishes = fetchedWishes.map(w => ({...w, date: new Date(w.date)}));
-      setWishes(parsedWishes);
+      // Dates from server actions are not Date objects, so we cast them.
+      // The actual Date object conversion for formatting happens in WishCard's useEffect.
+      setWishes(fetchedWishes as GuestWish[]);
     }
     fetchWishes();
   }, [state]); // Refetch when form state changes (i.e., after submission)

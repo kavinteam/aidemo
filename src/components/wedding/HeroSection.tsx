@@ -11,8 +11,10 @@ const heroImageIds = ['hero', 'hero-2', 'hero-3', 'hero-4', 'hero-5', 'hero-6', 
 export default function HeroSection() {
   const [images, setImages] = useState<ImagePlaceholder[]>([]);
   const [offsetY, setOffsetY] = useState(0);
+  const [isClient, setIsClient] = useState(false);
   
   useEffect(() => {
+    setIsClient(true); // Component has mounted
     const handleScroll = () => setOffsetY(window.pageYOffset);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -29,9 +31,11 @@ export default function HeroSection() {
       id="home"
       className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden"
     >
-      <div className="absolute inset-0 w-full h-full" style={{ transform: `translateY(${offsetY * 0.4}px)`}}>
-        {images.length > 0 && <HeroCarousel images={images} />}
-      </div>
+      {isClient && (
+        <div className="absolute inset-0 w-full h-full" style={{ transform: `translateY(${offsetY * 0.4}px)`}}>
+          {images.length > 0 && <HeroCarousel images={images} />}
+        </div>
+      )}
 
       <div className="absolute inset-0 bg-black/50" />
        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />

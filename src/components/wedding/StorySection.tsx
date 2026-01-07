@@ -1,7 +1,5 @@
-import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { getImage } from "@/lib/placeholder-images";
 import { ScrollFadeIn } from "./ScrollFadeIn";
 
 const storyData = [
@@ -37,20 +35,19 @@ export default function StorySection() {
             <div className="absolute border-opacity-20 border-primary/30 h-full border" style={{left: '50%'}}></div>
 
             {storyData.map((item, index) => {
-              const image = getImage(item.imageId);
               const isEven = index % 2 === 0;
 
               return (
                 <div key={index} className={cn(
-                  "mb-8 flex justify-between w-full",
-                  isEven ? "flex-row-reverse" : ""
+                  "mb-8 flex justify-between items-center w-full",
+                   isEven ? "flex-row-reverse left-timeline" : "right-timeline"
                 )}>
                   <div className="order-1 w-5/12"></div>
                   <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-8 h-8 rounded-full">
                     <h1 className="mx-auto font-semibold text-lg text-primary-foreground">{index + 1}</h1>
                   </div>
-                  <div className="order-1 w-5/12 px-2">
-                     <Card className="shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
+                  <div className="order-1 w-5/12 px-6 py-4">
+                     <Card className={cn("shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20", isEven ? "text-right" : "text-left")}>
                           <CardHeader>
                             <CardTitle className="font-headline text-2xl text-primary">{item.title}</CardTitle>
                             <CardDescription>{item.date}</CardDescription>
