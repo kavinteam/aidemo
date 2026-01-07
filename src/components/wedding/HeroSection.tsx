@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Countdown } from './Countdown';
@@ -14,17 +15,15 @@ export default function HeroSection() {
   const [isClient, setIsClient] = useState(false);
   
   useEffect(() => {
-    setIsClient(true); // Component has mounted
+    setIsClient(true);
     const handleScroll = () => setOffsetY(window.pageYOffset);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  useEffect(() => {
     const allImages = heroImageIds.map(id => getImage(id)).filter((img): img is ImagePlaceholder => !!img);
     setImages(allImages);
-  }, []);
 
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section
