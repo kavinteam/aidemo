@@ -12,8 +12,10 @@ export function Countdown() {
     minutes: 0,
     seconds: 0,
   });
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const calculateTimeLeft = () => {
       const difference = +WEDDING_DATE - +new Date();
       if (difference > 0) {
@@ -40,6 +42,23 @@ export function Countdown() {
     { label: "Minutes", value: timeLeft.minutes },
     { label: "Seconds", value: timeLeft.seconds },
   ];
+
+  if (!isClient) {
+    return (
+        <div className="flex justify-center gap-4 md:gap-8">
+        {timeUnits.map((unit) => (
+            <div key={unit.label} className="flex flex-col items-center">
+            <span className="text-4xl md:text-6xl font-headline font-light text-primary">
+                --
+            </span>
+            <span className="text-sm md:text-base font-body uppercase tracking-wider text-accent">
+                {unit.label}
+            </span>
+            </div>
+        ))}
+        </div>
+    );
+  }
 
   return (
     <div className="flex justify-center gap-4 md:gap-8">
