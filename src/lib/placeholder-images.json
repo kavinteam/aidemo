@@ -43,6 +43,12 @@
       "imageHint": "wedding celebration"
     },
     {
+      "id": "hero-8",
+      "description": "A beautiful photo of an indian bride in a traditional dress.",
+      "imageUrl": "https://as2.ftcdn.net/v2/jpg/05/35/47/38/1000_F_535473874_G0A33B0wB39m1p54nI2nAYY32sOfR02j.jpg",
+      "imageHint": "indian bride"
+    },
+    {
       "id": "story-1",
       "description": "Image for the first story milestone.",
       "imageUrl": "https://images.unsplash.com/photo-1718459724319-631e707cff92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3VwbGUlMjBjb2ZmZWV8ZW58MHx8fHwxNzY3NzY3NTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -51,7 +57,7 @@
     {
       "id": "story-2",
       "description": "Image for the second story milestone.",
-      "imageUrl": "https://images.unsplash.com/photo-1656558136312-71b8f3gwbea25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb3VwbGUlMjB0cmF2ZWx8ZW58MHx8fHwxNzY3NzA1NTczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1656558136312-71b8f3bea25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb3VwbGUlMjB0cmF2ZWx8ZW58MHx8fHwxNzY3NzA1NTczfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "couple travel"
     },
     {

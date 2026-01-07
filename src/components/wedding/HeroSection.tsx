@@ -7,7 +7,7 @@ import { HeroCarousel } from './HeroCarousel';
 import { useEffect, useState } from 'react';
 import { type ImagePlaceholder } from '@/lib/placeholder-images';
 
-const heroImageIds = ['hero', 'hero-2', 'hero-3', 'hero-4', 'hero-5', 'hero-6', 'hero-7'];
+const heroImageIds = ['hero', 'hero-2', 'hero-3', 'hero-4', 'hero-5', 'hero-6', 'hero-7', 'hero-8'];
 
 export default function HeroSection() {
   const [images, setImages] = useState<ImagePlaceholder[]>([]);
@@ -31,7 +31,7 @@ export default function HeroSection() {
     };
   }, []);
 
-  const scale = isClient ? Math.max(0.7, 1 - scroll / window.innerHeight) : 1;
+  const scale = isClient && typeof window !== 'undefined' ? Math.max(0.7, 1 - scroll / window.innerHeight) : 1;
 
   return (
     <section
