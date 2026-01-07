@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { getImage } from "@/lib/placeholder-images";
+import { ScrollFadeIn } from "./ScrollFadeIn";
 
 const galleryImageIds = ["gallery-1", "gallery-2", "gallery-3", "gallery-4", "gallery-5"];
 
@@ -15,7 +16,8 @@ export default function GallerySection() {
   const images = galleryImageIds.map(id => getImage(id)).filter(Boolean);
 
   return (
-    <section id="gallery" className="py-16 md:py-24 bg-background">
+    <section id="gallery" className="py-16 md:py-24 bg-background overflow-hidden">
+      <ScrollFadeIn>
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-headline text-center text-accent mb-12">
           Our Memories
@@ -32,8 +34,8 @@ export default function GallerySection() {
               image &&
               <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-[3/4] items-center justify-center p-0 overflow-hidden rounded-lg">
+                  <Card className="overflow-hidden rounded-lg">
+                    <CardContent className="flex aspect-[3/4] items-center justify-center p-0">
                       <Image
                         src={image.imageUrl}
                         alt={image.description}
@@ -52,6 +54,7 @@ export default function GallerySection() {
           <CarouselNext className="hidden md:flex" />
         </Carousel>
       </div>
+      </ScrollFadeIn>
     </section>
   );
 }

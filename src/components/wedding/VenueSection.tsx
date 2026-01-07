@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin } from "lucide-react";
 import { getImage } from "@/lib/placeholder-images";
+import { ScrollFadeIn } from "./ScrollFadeIn";
 
 const mainVenue = {
   name: "The Tamarind Tree",
@@ -14,7 +15,8 @@ export default function VenueSection() {
   const mapImage = getImage("map-placeholder");
 
   return (
-    <section id="venue" className="py-16 md:py-24 bg-background">
+    <section id="venue" className="py-16 md:py-24 bg-background overflow-hidden">
+        <ScrollFadeIn>
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-headline text-center text-accent mb-12">
           The Wedding Venue
@@ -42,7 +44,7 @@ export default function VenueSection() {
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mainVenue.address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block rounded-lg overflow-hidden shadow-2xl border-4 border-primary/20 hover:border-primary/50 transition-all"
+                className="block rounded-lg overflow-hidden shadow-2xl border-4 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:scale-105"
               >
                 <Image
                   src={mapImage.imageUrl}
@@ -57,6 +59,7 @@ export default function VenueSection() {
           </div>
         </div>
       </div>
+      </ScrollFadeIn>
     </section>
   );
 }

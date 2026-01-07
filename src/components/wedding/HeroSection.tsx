@@ -1,27 +1,50 @@
-import Image from "next/image";
-import { Countdown } from "./Countdown";
-import { getImage } from "@/lib/placeholder-images";
+import Image from 'next/image';
+import { Countdown } from './Countdown';
+import { getImage } from '@/lib/placeholder-images';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+
+const heroImageIds = ['hero', 'hero-2', 'hero-3'];
 
 export default function HeroSection() {
-  const heroImage = getImage("hero");
+  const images = heroImageIds.map(id => getImage(id)).filter(Boolean);
 
   return (
-    <section id="home" className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white">
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint={heroImage.imageHint}
-        />
-      )}
+    <section
+      id="home"
+      className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white"
+    >
+      <Carousel
+        className="absolute inset-0 w-full h-full"
+        plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
+        opts={{ loop: true }}
+      >
+        <CarouselContent className="h-full">
+          {images.map(
+            image =>
+              image && (
+                <CarouselItem key={image.id} className="h-full">
+                  <Image
+                    src={image.imageUrl}
+                    alt={image.description}
+                    fill
+                    className="object-cover"
+                    priority={images.indexOf(image) === 0}
+                    data-ai-hint={image.imageHint}
+                  />
+                </CarouselItem>
+              )
+          )}
+        </CarouselContent>
+      </Carousel>
+
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 p-4 flex flex-col items-center">
-        <h1 className="font-headline text-5xl md:text-8xl">
-          Aarav & Diya
-        </h1>
+        <h1 className="font-headline text-5xl md:text-8xl">Aarav & Diya</h1>
         <p className="mt-4 text-lg md:text-2xl font-light">
           are getting married!
         </p>

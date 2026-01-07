@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { ScrollFadeIn } from "./ScrollFadeIn";
 
 const events = [
     { id: "mehendi", label: "Mehendi" },
@@ -30,7 +31,8 @@ export default function RsvpSection() {
     const [state, formAction] = useFormState(submitRsvp, { message: "", errors: {} });
 
     return (
-        <section id="rsvp" className="py-16 md:py-24 bg-secondary/30 bg-paisley-pattern">
+        <section id="rsvp" className="py-16 md:py-24 bg-secondary/30 bg-paisley-pattern overflow-hidden">
+            <ScrollFadeIn>
             <div className="container mx-auto px-4 max-w-lg">
                 <Card className="shadow-2xl border-primary/20">
                     <CardHeader className="text-center">
@@ -98,6 +100,7 @@ export default function RsvpSection() {
                     </CardContent>
                 </Card>
             </div>
+            </ScrollFadeIn>
         </section>
     );
 }

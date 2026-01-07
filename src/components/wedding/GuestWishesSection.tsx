@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { formatDistanceToNow } from "date-fns";
+import { ScrollFadeIn } from "./ScrollFadeIn";
 
 type GuestWish = {
     name: string;
@@ -46,7 +47,8 @@ export default function GuestWishesSection() {
   }, [state]);
 
   return (
-    <section id="wishes" className="py-16 md:py-24 bg-background">
+    <section id="wishes" className="py-16 md:py-24 bg-background overflow-hidden">
+        <ScrollFadeIn>
       <div className="container mx-auto px-4 max-w-4xl">
         <h2 className="text-4xl md:text-5xl font-headline text-center text-accent mb-12">
           Guest Wishes
@@ -86,6 +88,7 @@ export default function GuestWishesSection() {
           </div>
         </div>
       </div>
+      </ScrollFadeIn>
     </section>
   );
 }

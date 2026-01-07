@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { MapPin, Clock, Shirt, Sparkles, Paintbrush, Music2, HeartHandshake, PartyPopper } from "lucide-react";
 import Link from "next/link";
+import { ScrollFadeIn } from "./ScrollFadeIn";
 
 const events = [
   {
@@ -58,7 +59,8 @@ const events = [
 
 export default function EventsSection() {
   return (
-    <section id="events" className="py-16 md:py-24 bg-secondary/30 bg-paisley-pattern">
+    <section id="events" className="py-16 md:py-24 bg-secondary/30 bg-paisley-pattern overflow-hidden">
+      <ScrollFadeIn>
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-headline text-center text-accent mb-12">
           The Wedding Events
@@ -74,7 +76,7 @@ export default function EventsSection() {
           </TabsList>
           {events.map((event) => (
             <TabsContent key={event.id} value={event.id}>
-              <Card className="mt-6 border-primary/20 shadow-lg">
+              <Card className="mt-6 border-primary/20 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
                 <CardHeader>
                   <CardTitle className="font-headline text-3xl text-primary flex items-center gap-4">
                     <event.icon className="w-8 h-8 text-accent" />
@@ -112,6 +114,7 @@ export default function EventsSection() {
           ))}
         </Tabs>
       </div>
+      </ScrollFadeIn>
     </section>
   );
 }
