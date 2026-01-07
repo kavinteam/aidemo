@@ -8,24 +8,24 @@ html {
 
 @layer base {
   :root {
-    --background: 30 67% 98%;
+    --background: 40 33% 96%; /* off-white #FAF9F6 */
     --foreground: 240 10% 3.9%;
-    --card: 30 67% 98%;
+    --card: 40 33% 96%;
     --card-foreground: 240 10% 3.9%;
-    --popover: 30 67% 98%;
+    --popover: 40 33% 96%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 45 68% 52%;
+    --primary: 45 68% 52%; /* gold #D4AF37 */
     --primary-foreground: 45 30% 15%;
-    --secondary: 30 20% 92%;
+    --secondary: 40 33% 92%;
     --secondary-foreground: 240 10% 3.9%;
-    --muted: 30 20% 92%;
+    --muted: 40 33% 92%;
     --muted-foreground: 0 0% 45.1%;
-    --accent: 0 100% 25%;
+    --accent: 0 100% 25%; /* maroon #800000 */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
+    --border: 45 68% 88%;
+    --input: 45 68% 88%;
     --ring: 45 68% 52%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -85,4 +85,10 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+    .bg-silk-pattern {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80' width='80' height='80' fill='none' stroke='hsl(45 68% 52% / 0.1)'%3e%3cpath d='M20 20v40L0 40zM40 0v80M60 20v40l20-20z'/%3e%3c/svg%3e");
+    }
 }

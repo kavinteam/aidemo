@@ -21,7 +21,7 @@ const events = [
 function SubmitButton() {
     const { pending } = useFormStatus();
     return (
-        <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+        <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-transform hover:scale-105">
             {pending ? "Submitting..." : "Send RSVP"}
         </Button>
     );
@@ -31,21 +31,21 @@ export default function RsvpSection() {
     const [state, formAction] = useFormState(submitRsvp, { message: "", errors: {} });
 
     return (
-        <section id="rsvp" className="py-16 md:py-24 bg-secondary/30 bg-paisley-pattern overflow-hidden">
+        <section id="rsvp" className="py-16 md:py-24 bg-secondary/30 bg-silk-pattern overflow-hidden">
             <ScrollFadeIn>
             <div className="container mx-auto px-4 max-w-lg">
-                <Card className="shadow-2xl border-primary/20">
+                <Card className="shadow-2xl border-primary/20 backdrop-blur-sm bg-background/80">
                     <CardHeader className="text-center">
                         <CardTitle className="font-headline text-4xl text-accent">RSVP</CardTitle>
                         <CardDescription className="text-base">We can't wait to celebrate with you!</CardDescription>
                     </CardHeader>
                     <CardContent>
                         {state.message && !state.errors.name ? (
-                             <div className="text-center p-8">
+                             <div className="text-center p-8 transition-opacity duration-500">
                                 <h3 className="font-headline text-2xl text-primary">{state.message}</h3>
                              </div>
                         ) : (
-                        <form action={formAction} className="space-y-6">
+                        <form action={formAction} className="space-y-6 transition-opacity duration-500">
                             <div className="space-y-2">
                                 <Label htmlFor="name">Full Name</Label>
                                 <Input id="name" name="name" placeholder="Your full name" />

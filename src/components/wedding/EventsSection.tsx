@@ -59,7 +59,7 @@ const events = [
 
 export default function EventsSection() {
   return (
-    <section id="events" className="py-16 md:py-24 bg-secondary/30 bg-paisley-pattern overflow-hidden">
+    <section id="events" className="py-16 md:py-24 bg-secondary/30 bg-silk-pattern overflow-hidden">
       <ScrollFadeIn>
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-headline text-center text-accent mb-12">
@@ -76,7 +76,7 @@ export default function EventsSection() {
           </TabsList>
           {events.map((event) => (
             <TabsContent key={event.id} value={event.id}>
-              <Card className="mt-6 border-primary/20 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+              <Card className="mt-6 border-primary/20 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
                 <CardHeader>
                   <CardTitle className="font-headline text-3xl text-primary flex items-center gap-4">
                     <event.icon className="w-8 h-8 text-accent" />

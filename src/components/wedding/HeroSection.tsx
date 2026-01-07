@@ -1,22 +1,36 @@
+"use client";
+
 import { Countdown } from './Countdown';
 import { getImage } from '@/lib/placeholder-images';
 import { HeroCarousel } from './HeroCarousel';
+import { useEffect, useState } from 'react';
 
 const heroImageIds = ['hero', 'hero-2', 'hero-3'];
 
 export default function HeroSection() {
   const images = heroImageIds.map(id => getImage(id)).filter(Boolean);
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white"
+      className="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden"
     >
-      {images && <HeroCarousel images={images} />}
+      <div className="absolute inset-0 w-full h-full" style={{ transform: `translateY(${offsetY * 0.4}px)`}}>
+        {images && <HeroCarousel images={images} />}
+      </div>
 
       <div className="absolute inset-0 bg-black/50" />
+       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       <div className="relative z-10 p-4 flex flex-col items-center">
-        <h1 className="font-headline text-5xl md:text-8xl">Aarav & Diya</h1>
+        <h1 className="font-headline text-5xl md:text-8xl text-shadow-lg" style={{textShadow: '0 2px 10px rgba(212,175,55,0.5)'}}>Aarav & Diya</h1>
         <p className="mt-4 text-lg md:text-2xl font-light">
           are getting married!
         </p>

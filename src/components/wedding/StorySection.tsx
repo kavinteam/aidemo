@@ -52,7 +52,7 @@ export default function StorySection() {
                   <div className="order-1 w-5/12">
                     <div className={cn("grid md:grid-cols-2 gap-6 items-center", isEven && "md:grid-flow-col-dense")}>
                       <div className={cn(isEven ? "md:col-start-2" : "md:col-start-1")}>
-                        <Card className="shadow-lg border-primary/20 transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                        <Card className="shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
                           <CardHeader>
                             <CardTitle className="font-headline text-2xl text-primary">{item.title}</CardTitle>
                             <CardDescription>{item.date}</CardDescription>
@@ -63,13 +63,13 @@ export default function StorySection() {
                         </Card>
                       </div>
                        {image && (
-                          <div className="rounded-lg overflow-hidden shadow-lg">
+                          <div className="rounded-lg overflow-hidden shadow-lg group">
                              <Image
                               src={image.imageUrl}
                               alt={item.title}
                               width={800}
                               height={600}
-                              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                              className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
                               data-ai-hint={image.imageHint}
                             />
                           </div>

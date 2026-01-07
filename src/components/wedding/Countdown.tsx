@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const WEDDING_DATE = new Date("2024-12-01T10:00:00");
 
@@ -42,15 +43,21 @@ export function Countdown() {
 
   return (
     <div className="flex justify-center gap-4 md:gap-8">
-      {timeUnits.map((unit) => (
-        <div key={unit.label} className="flex flex-col items-center">
+      {timeUnits.map((unit, index) => (
+        <motion.div 
+          key={unit.label} 
+          className="flex flex-col items-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
           <span className="text-4xl md:text-6xl font-headline font-light text-primary">
             {String(unit.value).padStart(2, "0")}
           </span>
           <span className="text-sm md:text-base font-body uppercase tracking-wider text-accent">
             {unit.label}
           </span>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
