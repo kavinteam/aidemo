@@ -11,9 +11,9 @@ const heroImageIds = ['hero', 'hero-2', 'hero-3', 'hero-4', 'hero-5', 'hero-6', 
 export default function HeroSection() {
   const [images, setImages] = useState<ImagePlaceholder[]>([]);
   const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
-
+  
   useEffect(() => {
+    const handleScroll = () => setOffsetY(window.pageYOffset);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

@@ -42,17 +42,15 @@ export default function StorySection() {
 
               return (
                 <div key={index} className={cn(
-                  "mb-8 flex justify-between items-center w-full",
-                  isEven ? "flex-row-reverse left-timeline" : "right-timeline"
+                  "mb-8 flex justify-between w-full",
+                  isEven ? "flex-row-reverse" : ""
                 )}>
                   <div className="order-1 w-5/12"></div>
                   <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-8 h-8 rounded-full">
                     <h1 className="mx-auto font-semibold text-lg text-primary-foreground">{index + 1}</h1>
                   </div>
-                  <div className="order-1 w-5/12">
-                    <div className={cn("grid md:grid-cols-2 gap-6 items-center", isEven && "md:grid-flow-col-dense")}>
-                      <div className={cn(isEven ? "md:col-start-2" : "md:col-start-1")}>
-                        <Card className="shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
+                  <div className="order-1 w-5/12 px-2">
+                     <Card className="shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20">
                           <CardHeader>
                             <CardTitle className="font-headline text-2xl text-primary">{item.title}</CardTitle>
                             <CardDescription>{item.date}</CardDescription>
@@ -61,20 +59,6 @@ export default function StorySection() {
                             <p className="text-muted-foreground">{item.description}</p>
                           </CardContent>
                         </Card>
-                      </div>
-                       {image && (
-                          <div className="rounded-lg overflow-hidden shadow-lg group">
-                             <Image
-                              src={image.imageUrl}
-                              alt={item.title}
-                              width={800}
-                              height={600}
-                              className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                              data-ai-hint={image.imageHint}
-                            />
-                          </div>
-                        )}
-                    </div>
                   </div>
                 </div>
               );

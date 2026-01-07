@@ -1,9 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useState, useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { submitGuestWish, getGuestWishes } from "@/app/actions";
-import { useEffect, useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -30,9 +29,9 @@ function WishCard({ wish }: { wish: GuestWish }) {
     const [timeAgo, setTimeAgo] = useState("");
 
     useEffect(() => {
-        setTimeAgo(formatDistanceToNow(wish.date, { addSuffix: true }));
+      // Ensure this runs only on the client
+      setTimeAgo(formatDistanceToNow(new Date(wish.date), { addSuffix: true }));
     }, [wish.date]);
-
 
     return (
         <Card className="bg-secondary/30">
@@ -40,7 +39,7 @@ function WishCard({ wish }: { wish: GuestWish }) {
                 <div className="flex justify-between items-center">
                 <CardTitle className="text-base font-semibold text-accent">{wish.name}</CardTitle>
                 <CardDescription className="text-xs">
-                    {timeAgo}
+                    {timeAgo || '...'}
                 </CardDescription>
                 </div>
             </CardHeader>
