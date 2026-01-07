@@ -15,7 +15,7 @@
     {
       "id": "hero-3",
       "description": "A beautiful photo of the couple sitting on a stage.",
-      "imageUrl": "https://images.unsplash.com/photo-1616165416773-817a1733a14a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxpbmRpYW4lMjB3ZWRkaW5nJTIwY291cGxlfGVufDB8fHx8MTc2Nzc2MzUwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://storage.googleapis.com/stabl-agent-testing/1331a982-f542-4360-b6b8-6e5a1b323c21/wedding_couple_stage.jpg",
       "imageHint": "indian wedding couple"
     },
     {

@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
         hostname: 'as2.ftcdn.net',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
