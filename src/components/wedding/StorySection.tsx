@@ -36,33 +36,35 @@ export default function StorySection() {
           <h2 className="text-4xl md:text-5xl font-headline text-center text-accent mb-12">
             Our Love Story
           </h2>
-          <div className="relative wrap overflow-hidden p-10 h-full">
-            <div className="absolute border-opacity-20 border-primary/30 h-full border" style={{left: '50%'}}></div>
-
+          <div className="max-w-3xl mx-auto space-y-12">
             {storyData.map((item, index) => {
               const isEven = index % 2 === 0;
               const image = getImage(item.imageId);
 
               return (
-                <div key={index} className={cn(
-                  "mb-8 flex justify-between items-center w-full",
-                   isEven ? "flex-row-reverse left-timeline" : "right-timeline"
-                )}>
-                  <div className="order-1 w-5/12"></div>
-                  <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-32 h-32 rounded-full overflow-hidden border-4 border-background">
-                    {image && (
-                      <Image
-                        src={image.imageUrl}
-                        alt={item.title}
-                        width={128}
-                        height={128}
-                        className="w-full h-full object-cover"
-                        data-ai-hint={image.imageHint}
-                      />
-                    )}
-                  </div>
-                  <div className="order-1 w-5/12 px-6 py-4">
-                     <Card className={cn("shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20", isEven ? "text-right" : "text-left")}>
+                <div key={index} className={cn("md:grid md:grid-cols-2 md:gap-12 items-center")}>
+                    <div className={cn(
+                        "flex justify-center mb-6 md:mb-0",
+                        isEven ? 'md:order-2' : 'md:order-1'
+                    )}>
+                        <div className="z-20 flex items-center justify-center bg-primary shadow-xl w-48 h-48 rounded-full overflow-hidden border-4 border-background">
+                            {image && (
+                            <Image
+                                src={image.imageUrl}
+                                alt={item.title}
+                                width={192}
+                                height={192}
+                                className="w-full h-full object-cover"
+                                data-ai-hint={image.imageHint}
+                            />
+                            )}
+                        </div>
+                    </div>
+                  <div className={cn(
+                      "flex justify-center",
+                      isEven ? 'md:order-1' : 'md:order-2'
+                  )}>
+                     <Card className={cn("shadow-lg border-primary/20 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/20", isEven ? "md:text-right" : "md:text-left")}>
                           <CardHeader>
                             <CardTitle className="font-headline text-2xl text-primary">{item.title}</CardTitle>
                             <CardDescription>{item.date}</CardDescription>
