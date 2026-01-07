@@ -49,13 +49,13 @@ export default function StorySection() {
                    isEven ? "flex-row-reverse left-timeline" : "right-timeline"
                 )}>
                   <div className="order-1 w-5/12"></div>
-                  <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-24 h-24 rounded-full overflow-hidden border-4 border-background">
+                  <div className="z-20 flex items-center order-1 bg-primary shadow-xl w-32 h-32 rounded-full overflow-hidden border-4 border-background">
                     {image && (
                       <Image
                         src={image.imageUrl}
                         alt={item.title}
-                        width={96}
-                        height={96}
+                        width={128}
+                        height={128}
                         className="w-full h-full object-cover"
                         data-ai-hint={image.imageHint}
                       />
